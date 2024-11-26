@@ -1,0 +1,22 @@
+
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #2d6a4f;
+    color: white;
+}
+
+.panorama {
+    background-image: url('/static/main/img/111.jpg');
+    background-repeat: repeat-x;
+    height: 200px;
+    width: 100%;
+    background-position: center top;
+}

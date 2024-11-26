@@ -1,5 +1,6 @@
 from pathlib import Path
 
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = "django-insecure-$3lfln86!*9nb#(1j8j^js2@vrkga$6^6uakue3hjb)p#wkqjh"
@@ -81,3 +82,13 @@ USE_TZ = True
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+    #"/var/www/static/", # это потребуется при выгрузке на сервер
+]
+
+
+
+
+

@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse #использовалось  при создании примеров
 from django.shortcuts import render
 
 

@@ -3,5 +3,5 @@ from . import views  # Импортируем ваши представлени�
 
 urlpatterns = [
     path('', views.home_news, name='home_news'),  # Главная страница
-
+path('create_news/', views.create_news, name='add_news'),
 ]

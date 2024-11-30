@@ -1,0 +1,66 @@
+{% extends 'main/layoute.html' %}
+
+{% load static %}  <!-- Загружаем тег static -->
+
+{% block title %}
+    Добавление новостей
+
+{% endblock %}
+
+{% block content %}
+<h1>Это страница для добавления новости</h1>
+<!--{{form}}-->
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-header bg-success text-white">
+                <h2 class="text-center">Добавить новость</h2>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <!--
+                        <label for="title" class="form-label">Заголовок новости</label>
+                        <input type="text" id="title" class="form-control" placeholder="Введите заголовок">
+                        -->
+                    {{ form.title }}
+                    </div>
+                    <div class="mb-3">
+                        <!--
+                        <label for="short-description" class="form-label">Краткое описание</label>
+                        <input type="text" id="short-description" class="form-control" placeholder="Введите краткое описание">
+                        -->
+                    {{ form.short_description }}
+                    </div>
+                    <div class="mb-3">
+                        <!--
+                        <label for="content" class="form-label">Содержание</label>
+                        <textarea id="content" class="form-control" placeholder="Введите содержание" rows="4"></textarea>
+                        -->
+                        {{ form.text }}
+                    </div>
+                    <div class="mb-3">
+                        <!--
+                        <label for="date" class="form-label">Дата</label>
+                        <input type="date" id="date" class="form-control">
+                        -->
+                    {{ form.pub_date }}
+                    </div>
+                    <!--
+                    <div class="mb-3">
+                        <label for="time" class="form-label">Время</label>
+                        <input type="time" id="time" class="form-control">
+                    </div>
+                    -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success">Добавить новость</button>
+                    </div>
+                </form>
+                <p>{{error}}</p>
+            </div>
+        </div>
+    </div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+{% endblock %}

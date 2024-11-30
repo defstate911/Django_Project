@@ -8,15 +8,23 @@
 
 {% block content %}
 <h1>Это новостная страница</h1>
-
-{% for new in news %}
-	<div>
-		<h3> {{ new.title }} </h3>
-		<p> {{ new.short_description }} </p>
-        <p> {{ new.text }} </p>
-        <p> {{ new.pub_date }} </p>
-        <p> {{ new.author }} </p>
-	</div>
-{% endfor %}
+    {% if news %}
+        {% for new in news %}
+            <div>
+                <div class="card" style="width: 58rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ new.title }}</h5>
+                        <p class="card-text">{{ short_description }}</p>
+                        <p class="card-text">{{ new.text }}</p>
+                        <p class="card-text">{{ new.pub_date }}</p>
+                        <p class="card-text">{{ new.author }}</p>
+                        <a href="#" class="btn btn-primary">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <h4>Новостей еще нет</h4>
+    {% endif %}
 
 {% endblock %}

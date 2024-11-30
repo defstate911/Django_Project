@@ -1,0 +1,61 @@
+{% extends 'films/base.html' %}
+{% load static %}
+
+{% block title %}
+    Добавить фильм
+{% endblock %}
+
+{% block content %}
+<h3 class="text-center mb-4">Фильм, которым хочется поделиться</h3>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg">
+                <div class="card-header text-bg-primary text-white text-center">
+                    <h4>Форма добавления фильма</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="mb-3">
+                            <label for="id_movie_title" class="form-label">Название фильма</label>
+                            {{ form.movie_title }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_film_content" class="form-label">Описание</label>
+                            {{ form.film_content }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_review" class="form-label">Рецензия</label>
+                            {{ form.review }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_pub_date" class="form-label">Дата публикации</label>
+                            {{ form.pub_date }}
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success">Добавить фильм</button>
+                        </div>
+                    </form>
+                    {% if error %}
+                        <div class="alert alert-danger mt-3" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Подключение flatpickr для удобного выбора даты -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    flatpickr("#id_pub_date", {
+        dateFormat: "Y-m-d",
+        altInput: true,
+        altFormat: "F j, Y"
+    });
+</script>
+{% endblock %}

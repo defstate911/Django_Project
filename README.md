@@ -1,7 +1,3 @@
-# Django_Project_ClassWork
- 
-# README.md
-
 ## Описание проектов
 
 Этот репозиторий содержит два Django-приложения.
